@@ -51,10 +51,10 @@ function CategoryIcon({ name }: { name: string }) {
         </>
       )}
       {name === "fitness" && (
-        <>
-          <circle cx="30" cy="8" r="3" />
-          <path d="m28 13-7 8 7 5-5 8M24 19l9 1 5 7M12 22l7-2 4 4M8 37h30M12 31l5-8 7 3 7 6" />
-        </>
+        <g strokeWidth="2.2">
+          <path d="M14 24h20" />
+          <path d="M14 17v14M9 19v10M34 17v14M39 19v10" />
+        </g>
       )}
       {name === "fashion" && (
         <>
