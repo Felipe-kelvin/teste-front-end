@@ -1,0 +1,300 @@
+.product-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgb(0 0 0 / 62%);
+    animation: modal-fade-in 0.2s ease;
+}
+
+.product-modal {
+    position: relative;
+    width: min(610px, 100%);
+    min-height: 240px;
+    max-height: calc(100vh - 32px);
+    padding: 49px 54px 29px;
+    overflow-y: auto;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgb(0 0 0 / 15%);
+
+    &__close {
+        position: absolute;
+        top: 8px;
+        right: 17px;
+        display: grid;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        place-items: center;
+        border: 0;
+        background: transparent;
+        color: #777;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            color: #222;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #343ec4;
+            outline-offset: 2px;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        align-items: center;
+        gap: 37px;
+    }
+
+    &__image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    &__image {
+        display: block;
+        width: 110px;
+        height: 145px;
+        object-fit: contain;
+    }
+
+    &__details {
+        min-width: 0;
+    }
+
+    &__title {
+        margin: 0 0 5px;
+        color: #424242;
+        overflow: hidden;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: 0.15px;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    &__price {
+        margin: 0;
+        color: #414141;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    &__description {
+        display: -webkit-box;
+        margin: 20px 0 2px;
+        overflow: hidden;
+        color: #999;
+        font-size: 9px;
+        line-height: 1.45;
+        letter-spacing: 0.25px;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    &__actions {
+        display: grid;
+        grid-template-columns: 87px minmax(0, 1fr);
+        gap: 9px;
+        margin-top: 37px;
+    }
+
+    &__quantity-control {
+        display: flex;
+        height: 29px;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+
+        button {
+            display: grid;
+            width: 27px;
+            height: 27px;
+            padding: 0;
+            place-items: center;
+            border: 0;
+            background: transparent;
+            color: #242044;
+            font-size: 19px;
+            cursor: pointer;
+
+            &:disabled {
+                color: #999;
+                cursor: not-allowed;
+            }
+        }
+
+        span {
+            min-width: 19px;
+            color: #242044;
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+
+    &__add-button {
+        min-height: 29px;
+        padding: 6px 12px;
+        border: 0;
+        border-radius: 5px;
+        background: #ffca05;
+        color: #242044;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: #edba00;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #242044;
+            outline-offset: 3px;
+        }
+    }
+
+    &__success {
+        margin: 7px 0 0;
+        color: #218838;
+        font-size: 10px;
+    }
+
+    &__more-details {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #2529d8;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.15px;
+        text-align: left;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__extra-description {
+        display: none;
+
+        &--visible {
+            display: block;
+            margin: 22px 0 0 257px;
+            padding-top: 14px;
+            border-top: 1px solid #eee;
+
+            h3 {
+                margin: 0 0 6px;
+                color: #424242;
+                font-size: 13px;
+            }
+
+            p {
+                color: #777;
+                font-size: 10px;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-modal-overlay {
+        padding: 12px;
+    }
+
+    .product-modal {
+        min-height: 0;
+        padding: 35px 20px 22px;
+
+        &__content {
+            grid-template-columns: 92px minmax(0, 1fr);
+            align-items: center;
+            gap: 16px;
+        }
+
+        &__image {
+            width: 82px;
+            height: 125px;
+        }
+
+        &__title {
+            font-size: 13px;
+            white-space: normal;
+        }
+
+        &__price {
+            font-size: 15px;
+        }
+
+        &__description {
+            margin-top: 12px;
+        }
+
+        &__actions {
+            grid-template-columns: 76px minmax(0, 1fr);
+            gap: 6px;
+            margin-top: 14px;
+        }
+
+        &__quantity-control button {
+            width: 22px;
+        }
+
+        &__add-button {
+            padding-inline: 5px;
+            font-size: 10px;
+        }
+
+        &__extra-description--visible {
+            margin-left: 0;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .product-modal {
+        padding-inline: 14px;
+
+        &__content {
+            grid-template-columns: 72px minmax(0, 1fr);
+            gap: 10px;
+        }
+
+        &__image {
+            width: 68px;
+            height: 110px;
+        }
+    }
+}

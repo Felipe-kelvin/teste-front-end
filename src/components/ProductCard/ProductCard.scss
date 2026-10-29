@@ -1,0 +1,129 @@
+.product-card {
+    width: 204px;
+    height: 500px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    text-align: left;
+    background-color: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 9px;
+    min-width: 0;
+    box-shadow: 0 2px 9px rgb(0 0 0 / 12%);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgb(0 0 0 / 15%);
+    }
+
+    &__image-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 250px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__title {
+        display: none;
+        margin: 8px 0;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: #333333;
+    }
+
+    &__description {
+        display: -webkit-box;
+        min-height: 34px;
+        margin: 0 0 7px;
+        overflow: hidden;
+        color: #666;
+        font-size: 12px;
+        line-height: 1.45;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    &__previous-price {
+        margin: 0 0 2px;
+        color: #888;
+        font-size: 12px;
+        line-height: 1.2;
+        text-decoration: line-through;
+    }
+
+    &__price {
+        margin: 0 0 4px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #333333;
+    }
+
+    &__installments {
+        margin: 0 0 7px;
+        color: #666;
+        font-size: 10px;
+    }
+
+    &__payment {
+        margin: 0 0 10px;
+        color: #343ec4;
+        font-size: 11px;
+    }
+
+    &__buy {
+        width: 100%;
+        min-height: 35px;
+        margin-top: auto;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #343ec4;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #292fa0;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #343ec4;
+            outline-offset: 3px;
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .product-card {
+        width: 100%;
+        height: 430px;
+        min-height: 430px;
+        padding: 9px;
+
+        &__image-button {
+            height: 215px;
+        }
+
+        &__description {
+            font-size: 11px;
+        }
+    }
+}
